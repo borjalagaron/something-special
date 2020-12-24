@@ -52,12 +52,13 @@ function addMeal(mealData, random = false) {
   btn.addEventListener("click", () => {
     if (!btn.classList.contains("active")) {
       addMealToLS(mealData.idMeal);
-      addFavMeal(mealData);
       btn.classList.add("active");
     } else {
       removeFromLS(mealData.idMeal);
       btn.classList.remove("active");
     }
+    favMeals.innerHTML = "";
+    fetchFavMeals();
   });
   meals.appendChild(meal);
 }
@@ -82,7 +83,9 @@ function getMealsFromLS() {
   return mealIds === null ? [] : mealIds;
 }
 
-async function fetchFavMeals() { 
+async function fetchFavMeals() {
+  favMeals.innerHTML = "";
+
   const mealIds = getMealsFromLS();
 
   console.log(mealIds);
@@ -110,6 +113,7 @@ function addFavMeal(mealData) {
 
   btn.addEventListener("click", () => {
     removeFromLS(mealData.idMeal);
+
     fetchFavMeals();
   });
 
