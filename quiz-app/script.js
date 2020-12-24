@@ -94,7 +94,7 @@ console.log(myString);
       loadQuiz();
     } else {
       //TODO: Show results
-      quiz.innerHTML = `<h2>Congrats!! You answered correctly  ${score}/${quizData.length}</h2> 
+      quiz.innerHTML = `<h2>Congrats!! You answered correctly   </h2> 
       <button onclick="location.reload()">Reload</button>`;
 
       console.log(score);
